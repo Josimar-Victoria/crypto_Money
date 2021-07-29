@@ -1,4 +1,5 @@
 # 2021_Crypto Create React App
+<img src='https://github.com/Josimar-Victoria/crypto_Money/blob/main/Captura%20de%20pantalla%20de%202021-07-29%2000-31-52.png?raw=true' alt='img2' />
 <img src='https://github.com/Josimar-Victoria/crypto_Money/blob/main/Captura%20de%20pantalla%20de%202021-07-29%2000-32-02.png?raw=true' alt='img' />
 This project was bootstrapped with [Create React App](https://github.com/facebook/create-react-app).
 
