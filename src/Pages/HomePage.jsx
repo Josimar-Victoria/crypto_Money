@@ -15,6 +15,7 @@ import { selectCrypto } from "../Features/CryptoSlice";
 import styled from "styled-components";
 import { CoinRow } from "../Components/CoinRow/CoinRow";
 import { Spinner } from "../Components/Spinner";
+import { AddCoin } from "../Components/AddCoin";
 
 export const HomePage = () => {
   const crypto = useSelector(selectCrypto);
@@ -45,30 +46,37 @@ export const HomePage = () => {
     }
 }, [crypto]);
 
-    if (isloading) {
-    return <Spinner/>;
-}
-
 return (
-    <TableContainer component={Paper}>
-     <Table sizes="small" aria-label="a dense table">
-        <TableHead>
-            <TableRow>
-                <HeaderCell>Image</HeaderCell>
-                <HeaderCell>Symbol</HeaderCell>
-                <HeaderCell>MKtcap-Rank</HeaderCell>
-                <HeaderCell>Current-price</HeaderCell>
-                <HeaderCell>Charts</HeaderCell>
-                <HeaderCell>Price-1-day-%</HeaderCell>
-            </TableRow>
-        </TableHead>
-        <TableBody>
-          {coins.map((coin) => (
-            <CoinRow key={coin.id} data={coin} />
-          ))}
-        </TableBody>
-      </Table>
-    </TableContainer>
+  <>
+    {
+      isloading ? (
+        <Spinner/>
+      ) : (
+      <>
+      <AddCoin/>
+          <TableContainer component={Paper}>
+          <Table sizes="small" aria-label="a dense table">
+            <TableHead>
+                <TableRow>
+                    <HeaderCell>Image</HeaderCell>
+                    <HeaderCell>Symbol</HeaderCell>
+                    <HeaderCell>MKtcap-Rank</HeaderCell>
+                    <HeaderCell>Current-price</HeaderCell>
+                    <HeaderCell>Charts</HeaderCell>
+                    <HeaderCell>Price-1-day-%</HeaderCell>
+                </TableRow>
+            </TableHead>
+            <TableBody>
+              {coins.map((coin) => (
+                <CoinRow key={coin.id} data={coin} />
+              ))}
+            </TableBody>
+          </Table>
+        </TableContainer>
+      </>
+      )
+    }
+  </>
   );
 };
 
